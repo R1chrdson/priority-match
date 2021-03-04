@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/css.css') }}">
+    </head>
+    <body>
+    <div id="header">
+        <h1>Психологічна сумісність</h1>
+    </div>
+    <div id="body">
+        <div id="name-inputs">
+                <input class="input-name" name="first-name" placeholder="Введіть ім'я першого учасника">
+                <input class="input-name" name="second-name" placeholder="Введіть ім'я другого учасника">
+        </div>
+        <div id="alternatives">
+            <div id="alternatives-bottom">
+                <button id="alternative_add_button">Додати альтернативу</button>
+                <button type="submit">Перейти до опитування</button>
+            </div>
+            <ul id="alternatives-list">
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        <p>© 2021</p>
+    </div>
+    </body>
+    <script src="{{ url_for('static', filename='js/js.js') }}"></script>
+</html>
