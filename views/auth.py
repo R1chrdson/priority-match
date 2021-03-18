@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect
 from forms import LoginForm, SignUpForm
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 from models.user import User
 from db import db
 
@@ -20,7 +20,8 @@ def authentication(auth_type):
         else:
             user = db.session.query(User).filter(User.username == form.username.data).first()
         login_user(user)
-        print(user.is_authenticated)
+
+    if current_user.is_authenticated:
         return redirect('/profile')
 
     for field, errors in form.errors.items():
