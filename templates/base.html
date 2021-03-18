@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Test</title>
-        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+        {% assets 'css' %}
+          <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
     </head>
     <body>
         {% block content %}
