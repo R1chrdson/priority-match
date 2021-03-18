@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container flex flex-col mx-auto min-h-screen divide-y-2">
+    <a href="/logout" class="text-blue-500 underline">Вийти!</a>
+    <section class="self-center justify-center w-full">
+        <h1 class="font-black text-3xl">Профіль</h1>
+        <div>
+            <img src="{{ avatar_src }}" class="object-contain h-24 w-24 m-4">
+            <form method="POST">
+                {{ form.csrf_token }}
+                <div>
+                    Id
+                    <input id="id" class="form" disabled="True" value="{{ user.id }}">
+                    Username
+                    {{ form.username(class='form') }}
+                    Name
+                    {{ form.name(class='form') }}
+                </div>
+            </form>
+        </div>
+        <div>
+        </div>
+    </section>
+{#    <section class="self-center justify-center w-full">#}
+{#        <h1 class="font-black text-3xl">Опитування</h1>#}
+{#    </section>#}
+</div>
+{% endblock %}

@@ -46,3 +46,18 @@ class SignUpForm(FlaskForm):
             return False
 
         return True
+
+
+class EditProfileForm(SignUpForm):
+    name = StringField(validators=[DataRequired(),
+                                   Length(min=3, max=15, message='Довжина імені від 2х до 15ти символів!')])
+
+    surname = StringField(validators=[DataRequired(),
+                                      Length(min=3, max=15, message='Довжина фамілії від 2х до 15ти символів!')])
+
+    def validate(self):
+        initial_validation = super().validate()
+        if not initial_validation:
+            return False
+
+        return True
