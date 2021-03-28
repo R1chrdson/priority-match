@@ -1,6 +1,6 @@
 ### Installation
 
-1. Create python virtual enviroment
+1. Create python virtual environment
 ```shell
 python -m venv venv
 ```
