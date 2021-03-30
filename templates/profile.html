@@ -3,19 +3,28 @@
 {% block content %}
 <div class="container flex flex-col mx-auto min-h-screen divide-y-2">
     <a href="/logout" class="text-blue-500 underline">Вийти!</a>
-    <section class="self-center justify-center w-full">
-        <h1 class="font-black text-3xl">Профіль</h1>
-        <div>
-            <img src="{{ avatar_src }}" class="object-contain h-24 w-24 m-4">
+    <section class="flex flex-wrap justify-center flex-col w-full">
+        <h1 class="self-center font-black text-3xl m-4">Профіль</h1>
+        <div class="flex justify-center flex-wrap">
+            <div id="user-avatar" class="w-32 h-32 m-4 self-center">
+                    <img src="{{ current_user.avatar }}" class="rounded-full">
+            </div>
             <form method="POST">
                 {{ form.csrf_token }}
-                <div>
-                    Id
-                    <input id="id" class="form" disabled="True" value="{{ user.id }}">
-                    Username
-                    {{ form.username(class='form') }}
-                    Name
-                    {{ form.name(class='form') }}
+                <div class="flex flex-col">
+                    <div class="m-4">
+                        <label for="username" class="py-2 float-left text-right w-24 text-xl">Логін</label>
+                        {{current_user.login}}
+                        {{ form.username(class='form disabled text-left px-2 py-2 ml-4 border border-1 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none', value=current_user.username) }}
+                    </div>
+                    <div class="m-4">
+                        <label for="name" class="py-2 float-left text-right w-24 text-xl">Ім'я</label>
+                        {{ form.name(class='form text-left px-2 py-2 ml-4 border border-1 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none', value=current_user.name) }}
+                    </div>
+                    <div class="m-4">
+                        <label for="surname" class="py-2 float-left text-right w-24 text-xl">Фамілія</label>
+                        {{ form.surname(class='form text-left px-2 py-2 ml-4 border border-1 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none', value=current_user.surname) }}
+                    </div>
                 </div>
             </form>
         </div>
